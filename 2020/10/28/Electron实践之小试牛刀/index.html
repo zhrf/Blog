@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="最近接触了游戏的业务，要开发一个类似游戏盒子的功能 桌面应用纷繁复杂的应用程序可以分为三大类，Web应用、移动端应用、桌面应用，这里细说一下桌面应用 什么是桌面应用桌面应用程序，又称为 GUI 程序（Graphical User Interface），但是和 GUI 程序也有一些区别。桌面应用程序 将 GUI 程序从GUI 具体为“桌面”，使冷冰冰的像块木头一样的电脑概念更具有 人性化，更生动和富">
+<meta name="description" content="大家好，我是喜欢饭饭而谈的 Phantom前段时间接触了游戏的业务，需求是开发一个类似英雄联盟盒子的桌面应用。于是有了一些 Electron 的使用心得，分几篇和大家分享一下。 桌面应用纷繁复杂的应用程序可以分为三大类，Web 应用、移动端应用、桌面应用，这里细说一下桌面应用 什么是桌面应用桌面应用程序，又称为 GUI 程序（Graphical User Interface），但是和 GUI 程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Electron实践之小试牛刀">
 <meta property="og:url" content="http://example.com/2020/10/28/Electron%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80/index.html">
 <meta property="og:site_name" content="鼓楼笔记">
-<meta property="og:description" content="最近接触了游戏的业务，要开发一个类似游戏盒子的功能 桌面应用纷繁复杂的应用程序可以分为三大类，Web应用、移动端应用、桌面应用，这里细说一下桌面应用 什么是桌面应用桌面应用程序，又称为 GUI 程序（Graphical User Interface），但是和 GUI 程序也有一些区别。桌面应用程序 将 GUI 程序从GUI 具体为“桌面”，使冷冰冰的像块木头一样的电脑概念更具有 人性化，更生动和富">
+<meta property="og:description" content="大家好，我是喜欢饭饭而谈的 Phantom前段时间接触了游戏的业务，需求是开发一个类似英雄联盟盒子的桌面应用。于是有了一些 Electron 的使用心得，分几篇和大家分享一下。 桌面应用纷繁复杂的应用程序可以分为三大类，Web 应用、移动端应用、桌面应用，这里细说一下桌面应用 什么是桌面应用桌面应用程序，又称为 GUI 程序（Graphical User Interface），但是和 GUI 程序">
 <meta property="og:image" content="http://example.com/images/1.png">
 <meta property="og:image" content="http://example.com/images/2.png">
 <meta property="og:image" content="http://example.com/images/3.png">
@@ -367,22 +367,23 @@
       
 
       
-        <p>最近接触了游戏的业务，要开发一个类似游戏盒子的功能</p>
-<h1 id="桌面应用"><a href="#桌面应用" class="headerlink" title="桌面应用"></a>桌面应用</h1><p>纷繁复杂的应用程序可以分为三大类，Web应用、移动端应用、桌面应用，这里细说一下桌面应用</p>
-<h2 id="什么是桌面应用"><a href="#什么是桌面应用" class="headerlink" title="什么是桌面应用"></a>什么是桌面应用</h2><p>桌面应用程序，又称为 GUI 程序（Graphical User Interface），但是和 GUI 程序也有一些区别。桌面应用程序 将 GUI 程序从GUI 具体为“桌面”，使冷冰冰的像块木头一样的电脑概念更具有 人性化，更生动和富有活力。我们电脑上使用的各种客户端程序都属于桌面应用程序，近年来WEB和移动端的兴起让桌面程序渐渐暗淡，但是在某些日常功能或者行业应用中桌面应用程序仍然是必不可少的。</p>
+        <p>大家好，我是喜欢饭饭而谈的 Phantom<br>前段时间接触了游戏的业务，需求是开发一个类似英雄联盟盒子的桌面应用。于是有了一些 Electron 的使用心得，分几篇和大家分享一下。</p>
+<h1 id="桌面应用"><a href="#桌面应用" class="headerlink" title="桌面应用"></a>桌面应用</h1><p>纷繁复杂的应用程序可以分为三大类，Web 应用、移动端应用、桌面应用，这里细说一下桌面应用</p>
+<h2 id="什么是桌面应用"><a href="#什么是桌面应用" class="headerlink" title="什么是桌面应用"></a>什么是桌面应用</h2><p>桌面应用程序，又称为 GUI 程序（Graphical User Interface），但是和 GUI 程序也有一些区别。桌面应用程序 将 GUI 程序从 GUI 具体为“桌面”，使冷冰冰的像块木头一样的电脑概念更具有 人性化，更生动和富有活力。我们电脑上使用的各种客户端程序都属于桌面应用程序，近年来 WEB 和移动端的兴起让桌面程序渐渐暗淡，但是在某些日常功能或者行业应用中桌面应用程序仍然是必不可少的。</p>
 <h2 id="开发方式"><a href="#开发方式" class="headerlink" title="开发方式"></a>开发方式</h2><ul>
-<li><p>原生开发<br>直接将语言编译成可执行文件，直接调用<strong>系统API</strong>，完成UI绘制等。这类开发技术，有着较高的运行效率，但一般来说，开发速度较慢，技术要求较高<br>例如：C++ / MFC 开发Windows应用、 Objective-C 开发Mac应用</p>
+<li><p>原生开发<br>直接将语言编译成可执行文件，直接调用<strong>系统 API</strong>，完成 UI 绘制等。这类开发技术，有着较高的运行效率，但一般来说，开发速度较慢，技术要求较高<br>例如：C++ / MFC 开发 Windows 应用、 Objective-C 开发 Mac 应用</p>
 </li>
-<li><p>托管平台<br>一开始就有本地开发和UI开发。一次编译后，得到中间文件，通过平台或虚机完成二次加载编译或解释运行。运行效率低于原生编译，但平台优化后，其效率也是比较可观的。就开发速度方面，比原生编译技术要快一些。例如：<br>C# / .NET Framework、 Java / Swing</p>
+<li><p>托管平台<br>一开始就有本地开发和 UI 开发。一次编译后，得到中间文件，通过平台或虚机完成二次加载编译或解释运行。运行效率低于原生编译，但平台优化后，其效率也是比较可观的。就开发速度方面，比原生编译技术要快一些。例如：<br>C# / .NET Framework、 Java / Swing</p>
 </li>
-<li><p>WEB开发<br>使用<strong>WEB</strong>技术进行开发，利用浏览器引擎完成UI渲染，利用<strong>Node.js</strong>实现服务器端，JS编程并可以调用<strong>系统API</strong>，可以把它想像成一个套了一个客户端外壳的<strong>WEB</strong>应用。<br>在界面上，WEB的强大生态为UI带来了无限可能，并且开发、维护成本相对较低，有WEB开发经验的前端开发者很容易上手进行开发</p>
-</li>
+<li><p>WEB 开发<br>使用<strong>WEB</strong>技术进行开发，利用浏览器引擎完成 UI 渲染，利用<strong>Node.js</strong>实现服务器端，JS 编程并可以调用<strong>系统 API</strong>，可以把它想像成一个套了一个客户端外壳的<strong>WEB</strong>应用。<br>在界面上，WEB 的强大生态为 UI 带来了无限可能，并且开发、维护成本相对较低，有 WEB 开发经验的前端开发者很容易上手进行开发</p>
+<a id="more"></a>
+<h1 id="Electron"><a href="#Electron" class="headerlink" title="Electron"></a>Electron</h1></li>
 </ul>
-<h1 id="Electron"><a href="#Electron" class="headerlink" title="Electron"></a>Electron</h1><h2 id="什么是Electron-What"><a href="#什么是Electron-What" class="headerlink" title="什么是Electron(What?)"></a>什么是Electron(What?)</h2><p>官方解释：Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用。你可以把它看作是专注于桌面应用而不是 web 服务器的，io.js 的一个变体<br>我的理解：为使用JavaScript构建桌面应用提供的环境</p>
-<h2 id="为什么使用Electron-Why"><a href="#为什么使用Electron-Why" class="headerlink" title="为什么使用Electron(Why)?"></a>为什么使用Electron(Why)?</h2><ul>
-<li>站在巨人肩膀上，拥有强大的Web技术生态支持，开发效率高，可扩展性强</li>
-<li>跨平台性，一套代码可以支持不同的操作系统，甚至可以直接移植到web端、移动端</li>
-<li>兼容性好，使用Chromium内核渲染，无需在考虑各类浏览器的兼容性。且使用Nodejs内置模块Request，不存在跨域问题</li>
+<h2 id="什么是-Electron-What"><a href="#什么是-Electron-What" class="headerlink" title="什么是 Electron(What?)"></a>什么是 Electron(What?)</h2><p>官方解释：Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用。你可以把它看作是专注于桌面应用而不是 web 服务器的，io.js 的一个变体<br>我的理解：为使用 JavaScript 构建桌面应用提供的环境</p>
+<h2 id="为什么使用-Electron-Why"><a href="#为什么使用-Electron-Why" class="headerlink" title="为什么使用 Electron(Why)?"></a>为什么使用 Electron(Why)?</h2><ul>
+<li>站在巨人肩膀上，拥有强大的 Web 技术生态支持，开发效率高，可扩展性强</li>
+<li>跨平台性，一套代码可以支持不同的操作系统，甚至可以直接移植到 web 端、移动端</li>
+<li>兼容性好，使用 Chromium 内核渲染，无需在考虑各类浏览器的兼容性。且使用 Nodejs 内置模块 Request，不存在跨域问题</li>
 <li>对于大前端们易于上手</li>
 </ul>
 <h2 id="有谁在用-Who"><a href="#有谁在用-Who" class="headerlink" title="有谁在用(Who)?"></a>有谁在用(Who)?</h2><p><img src="/images/1.png"></p>
@@ -391,7 +392,7 @@
 <li>主进程<br>在 Electron 里，运行 package.json 里 main 脚本的进程被称为主进程。在主进程运行的脚本可以以创建 web 页面的形式展示 GUI</li>
 <li>渲染进程<br>由于 Electron 使用 Chromium 来展示页面，所以 Chromium 的多进程结构也被充分利用。每个 Electron 的页面都在运行着自己的进程，这样的进程我们称之为渲染进程</li>
 </ul>
-<p>每个Electron应用都会有辅助进程存在，辅助进程就相当于Electron的一个单独渲染进程，但是你即使关闭所有标签页，浏览器依旧存在，这就相当于Electron的主线程，能够打开新的窗口或者关闭整个应用。那么主进程和辅助进程是如何进行通信呢？<br>在Electron应用中，GUI组件仅在主进程可用，在辅助进程中不可用。那如果想要在辅助进程中试用GUI组件，势必需要和主进程进行通信。ipc模块就是用来实现主进程和辅助进程之间的通信。在主进程中使用ipcMain模块进行对辅助进程的通信进行控制和处理。而在辅助进程中，则使用ipcRenderer模块，来向主进程发送消息或者接受主进程的回应</p>
+<p>每个 Electron 应用都会有辅助进程存在，辅助进程就相当于 Electron 的一个单独渲染进程，但是你即使关闭所有标签页，浏览器依旧存在，这就相当于 Electron 的主线程，能够打开新的窗口或者关闭整个应用。那么主进程和辅助进程是如何进行通信呢？<br>在 Electron 应用中，GUI 组件仅在主进程可用，在辅助进程中不可用。那如果想要在辅助进程中试用 GUI 组件，势必需要和主进程进行通信。ipc 模块就是用来实现主进程和辅助进程之间的通信。在主进程中使用 ipcMain 模块进行对辅助进程的通信进行控制和处理。而在辅助进程中，则使用 ipcRenderer 模块，来向主进程发送消息或者接受主进程的回应</p>
 <p><img src="/images/3.png"></p>
 
       
@@ -423,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/23/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="记一次搭建博客教程">
-                <i class="fa fa-chevron-left"></i> 记一次搭建博客教程
+              <a href="/2020/10/28/Electron%E5%AE%9E%E8%B7%B5%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/" rel="next" title="Electron实践之进程通信">
+                <i class="fa fa-chevron-left"></i> Electron实践之进程通信
               </a>
             
           </div>
@@ -502,7 +503,7 @@
                 alt="Phantom" />
             
               <p class="site-author-name" itemprop="name">Phantom</p>
-              <p class="site-description motion-element" itemprop="description">没有一刀99，打怪升级的路上砥砺前行</p>
+              <p class="site-description motion-element" itemprop="description">没有一刀99，升级路上砥砺前行</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -510,7 +511,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%7C%7C%20archive">
+                <a href="/archives/">
               
                   <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
@@ -574,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#桌面应用"><span class="nav-number">1.</span> <span class="nav-text">桌面应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是桌面应用"><span class="nav-number">1.1.</span> <span class="nav-text">什么是桌面应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发方式"><span class="nav-number">1.2.</span> <span class="nav-text">开发方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Electron"><span class="nav-number">2.</span> <span class="nav-text">Electron</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Electron-What"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Electron(What?)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用Electron-Why"><span class="nav-number">2.2.</span> <span class="nav-text">为什么使用Electron(Why)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有谁在用-Who"><span class="nav-number">2.3.</span> <span class="nav-text">有谁在用(Who)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-number">2.4.</span> <span class="nav-text">工作原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#桌面应用"><span class="nav-number">1.</span> <span class="nav-text">桌面应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是桌面应用"><span class="nav-number">1.1.</span> <span class="nav-text">什么是桌面应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发方式"><span class="nav-number">1.2.</span> <span class="nav-text">开发方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Electron"><span class="nav-number">2.</span> <span class="nav-text">Electron</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-Electron-What"><span class="nav-number">2.1.</span> <span class="nav-text">什么是 Electron(What?)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用-Electron-Why"><span class="nav-number">2.2.</span> <span class="nav-text">为什么使用 Electron(Why)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有谁在用-Who"><span class="nav-number">2.3.</span> <span class="nav-text">有谁在用(Who)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-number">2.4.</span> <span class="nav-text">工作原理</span></a></li></ol></li></ol></div>
             
 
           </div>
